@@ -1,0 +1,11 @@
+<article>
+  <header>
+    <h1><a href="<%= url(article.slug) %>"><%= article.title %></h1>
+      <time> class="timeago" datatime="<%= article.date.xmlschema %>">
+        <%= article.date.strftime "%Y/%m/%d" %>
+      </time>
+  </header>
+  <section>
+    <%= markdown article.content %>
+  </section>
+</article>
