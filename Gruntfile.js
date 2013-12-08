@@ -7,7 +7,11 @@ module.exports = function(grunt) {
         dest: "public/stylesheets/application.css"
       },
       js: {
-        src: [ "assets/javascripts/*" ],
+        src: [ 
+          "assets/javascripts/jquery.js",
+          "assets/javascripts/jquery.timeago.js",
+          "assets/javascripts/prefixfree.js"
+        ],
         dest: "public/javascripts/application.js"
       }
     },
@@ -20,7 +24,9 @@ module.exports = function(grunt) {
     uglify : {
       js: {
         files: {
-          "application" : [ "public/javascripts/application.js" ]
+          "public/javascripts/application.js" : [
+            "public/javascripts/application.js"
+          ]
         }
       }
     },
