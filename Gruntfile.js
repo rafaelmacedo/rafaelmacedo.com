@@ -2,10 +2,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
     concat: {
-      css: { 
-        src: [ "assets/stylesheets/*" ],
-        dest: "public/stylesheets/application.css"
-      },
       js: {
         src: [ 
           "assets/javascripts/jquery.js",
@@ -21,6 +17,16 @@ module.exports = function(grunt) {
         dest: "public/stylesheets/application.css"
       }
     },
+    sass: {
+      dist: {
+        options: {
+          bundleExec: true
+        },
+        files: {
+          "public/stylesheets/application.css": "assets/stylesheets/application.scss"
+        }
+      }
+    },
     uglify : {
       js: {
         files: {
@@ -32,13 +38,14 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ["assets/stylesheets/*", "assets/javascripts/*"],
-      tasks: ["concat", "cssmin", "uglify"]
+      tasks: ["sass", "cssmin", "uglify"]
     }
   });
 
   grunt.loadNpmTasks("grunt-contrib-concat");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
-  grunt.registerTask("default", [ "concat:css", "cssmin:css", "concat:js", "uglify:js" ]);
+  grunt.loadNpmTasks("grunt-contrib-sass");
+  grunt.loadNpmTasks("grunt-contrib-uglify");
+  grunt.loadNpmTasks("grunt-contrib-watch");  
+  grunt.registerTask("default", [ "sass", "cssmin:css", "concat:js", "uglify:js" ]);
 };
