@@ -6,7 +6,10 @@ module.exports = function(grunt) {
         src: [ 
           "assets/javascripts/jquery.js",
           "assets/javascripts/jquery.timeago.js",
-          "assets/javascripts/prefixfree.js"
+          "assets/javascripts/jquery.timeago.pt-br.js",
+          "assets/javascripts/prefixfree.js",
+          "assets/javascripts/piecemaker.js",
+          "assets/javascripts/application.js"
         ],
         dest: "public/javascripts/application.js"
       }
@@ -36,16 +39,13 @@ module.exports = function(grunt) {
         }
       }
     },
-    watch: {
-      files: ["assets/stylesheets/*", "assets/javascripts/*"],
-      tasks: ["sass", "cssmin", "uglify"]
-    }
   });
 
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-sass");
   grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks("grunt-contrib-watch");  
-  grunt.registerTask("default", [ "sass", "cssmin:css", "concat:js", "uglify:js" ]);
+  grunt.registerTask("default", [
+    "sass", "cssmin:css", "concat:js", "uglify:js"
+  ]);
 };
