@@ -1,7 +1,9 @@
 require "git_hook"
 require "ostruct"
+require "redcarpet"
 require "sinatra/base"
 require "time"
+require "yaml"
 
 class Blog < Sinatra::Base
   use GitHook
