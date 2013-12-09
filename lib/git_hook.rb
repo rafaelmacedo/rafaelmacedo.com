@@ -17,7 +17,7 @@ class GitHook < Sinatra::Base
     last_modified settings.commit_date
   end
 
-  post "/update" do
+  put "/update" do
     settings.parse_git
 
     app.settings.reset!
@@ -25,7 +25,7 @@ class GitHook < Sinatra::Base
 
     context_type :txt
     if settings.autopull?
-      `git pull 1>&1`
+      `git pull 2>&1`
     else
       "ok"
     end
