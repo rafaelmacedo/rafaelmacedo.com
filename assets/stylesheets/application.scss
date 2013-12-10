@@ -4,3 +4,15 @@
 @import "mixins";
 @import "typography";
 @import "grid";
+
+body {
+  padding: 0 1em;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0;
+}

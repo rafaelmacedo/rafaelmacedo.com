@@ -1,6 +1,6 @@
 <article>
   <header>
-    <h1><a href="<%= url(article.slug) %>"><%= article.title %></h1>
+    <h1><a href="<%= url(article.slug) %>"><%= article.title %></a></h1>
     <time class="timeago" data-pieces="timeago" datetime="<%= article.date.xmlschema %>">
       <%= article.date.strftime "%Y/%m/%d" %>
     </time>
