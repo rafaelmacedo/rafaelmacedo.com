@@ -1,6 +1,16 @@
-var pieces = {
-  timeago: function (container) { $(container).timeago(); }
+var App = {
+  components: {}
 };
 
-var piecemaker = new Piecemaker({namespace: pieces});
-piecemaker.setup();
+App.components.timeago = function() {
+  function Piece(container) { $(container).timeago(); }
+  return Piece;
+}();
+
+$(function() {
+  var piecemaker = new Piecemaker({
+    name: "components",
+    namespace: App.components
+  });
+  piecemaker.setup();
+});
