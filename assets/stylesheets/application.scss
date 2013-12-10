@@ -1,28 +1,6 @@
 @import "normalize";
 
-body {
-  font: 16px/1.6 "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.1;
-}
-
-.container {
-  margin: 0 auto;
-  width: 960px;
-}
-
-.posts {
-  width: 600px;
-  article h1 {
-    float: left;
-    margin: 0 0 20px;
-  }
-  article .timeago {
-    float: right;
-  }
-  article p {
-    clear: both;
-  }
-}
+@import "variables";
+@import "mixins";
+@import "typography";
+@import "grid";

@@ -1,0 +1,52 @@
+$max-width: 1000px;
+$column-width: 15%;
+$gutter-width: 2%;
+$maximum-columns: 6;
+
+@function columns($columns, $container-columns: $maximum-columns) {
+  $width: $columns * $column-width + ($columns - 1) * $gutter-width;
+  $container-width: $container-columns * $column-width + ($container-columns - 1) * $gutter-width;
+}
+
+@function gutter($container-columns: $maximum-columns, $gutter: $gutter-width) {
+  $container-width: $container-columns * $column-width + ($container-columns - 1) * $gutter-width;
+  @return percentage($gutter / $container-width);
+}
+
+@mixin row {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  @include clearfix;
+  @include nesting;
+}
+
+@mixin nesting {
+  padding: 0;
+  & > div {
+    float: left;
+    margin-right: gutter();
+    @include border-box;
+  }
+}
+
+@function offset-columns($columns) {
+  $margin: $columns * $column-width + $columns * $gutter-width;
+  @return $margin;
+}
+
+@mixin offset($from-direction, $columns) {
+  @if $from-direction == left {
+    float: left;
+    margin-left: offset-columns($columns);
+  }
+  @if $from-direction == right {
+    float: right;
+    margin-right: offset-columns($columns);
+  }
+}
+
+@mixin last {
+  margin-right: 0;
+  float: right;
+}
