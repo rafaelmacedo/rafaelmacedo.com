@@ -8,12 +8,19 @@
 body {
   padding: 0 1em;
   margin: 0;
-  background: url("../images/brickwall.png");
 }
 
 .container {
-  width: 100%;
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 0;
+  @include row;
+}
+
+.post {
+  header .timeago {
+    float: right;
+    margin-top: -10px;
+  }
+  section {
+    @include clearfix;
+    margin-top: 50px;
+  }
 }
