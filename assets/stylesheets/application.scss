@@ -15,12 +15,7 @@ body {
 }
 
 .post {
-  header .timeago {
-    float: right;
-    margin-top: -10px;
-  }
   section {
-    @include clearfix;
-    margin-top: 50px;
+    margin-top: 25px;
   }
 }

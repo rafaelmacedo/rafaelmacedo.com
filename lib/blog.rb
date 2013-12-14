@@ -1,4 +1,4 @@
-require "git_hook"
+require_relative "git_hook"
 require "ostruct"
 require "redcarpet"
 require "sinatra/base"
@@ -9,24 +9,24 @@ class Blog < Sinatra::Base
   use GitHook
 
   set :app_file, __FILE__
-  set :articles, []
+  set :posts, []
   set :root, File.expand_path("../../", __FILE__)
 
-  Dir.glob "#{root}/articles/*.md" do |file|
+  Dir.glob "#{root}/posts/*.md" do |file|
     meta, content = File.read(file).split("\n\n", 2)
 
-    article         = OpenStruct.new YAML.load(meta)
-    article.content = content
-    article.data    = Time.parse article.date.to_s
-    article.slug    = File.basename file, ".md"
+    post         = OpenStruct.new YAML.load(meta)
+    post.content = content
+    post.data    = Time.parse post.date.to_s
+    post.slug    = File.basename file, ".md"
+    post.slug.gsub!(/\d{4}-\d{2}-\d{2}-/) { |match| match.gsub!("-", "/") }
 
-    get("/#{article.slug}") { erb :post, locals: { article: article } }
-
-    articles << article
+    get("/#{post.slug}") { erb :post, locals: { post: post } }
+    posts << post
   end
 
-  articles.sort_by { |article| article.date }
-  articles.reverse!
+  posts.sort_by { |post| post.date }
+  posts.reverse!
 
   get("/") { erb :index }
 end

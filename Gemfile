@@ -2,6 +2,16 @@ source "https://rubygems.org"
 
 gem "rack"
 gem "rack-cache"
+gem "rake"
 gem "redcarpet"
 gem "sass"
 gem "sinatra"
+
+group :development do
+  gem "shotgun"
+end
+
+group :test do
+  gem "rack-test", require: "rack/test"
+  gem "turn"
+end
