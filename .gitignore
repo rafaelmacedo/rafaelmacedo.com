@@ -1,4 +1,3 @@
 .bundle
+bin
 node_modules
-public/stylesheets/*.css
-public/javascripts/*.js
