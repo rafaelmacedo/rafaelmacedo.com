@@ -21,13 +21,13 @@ build:
 
     - bundle-install
 
-        - script:
-            name: echo ruby information
-            code: |
-                echo "ruby version $(ruby --version) running"
-                echo "from location $(which ruby)"
-                echo -p "gem list: $(gem list)"
+    - script:
+        name: echo ruby information
+        code: |
+            echo "ruby version $(ruby --version) running"
+            echo "from location $(which ruby)"
+            echo -p "gem list: $(gem list)"
 
-        - script:
-            name: teste
-            code: bundle exec rake
+    - script:
+        name: teste
+        code: bundle exec rake
