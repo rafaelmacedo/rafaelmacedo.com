@@ -3,6 +3,7 @@ box: plasticine/aerobic.io@0.0.6
 build:
   # The steps that will be executed on build
   steps:
+    - bundle-install
     - npm-install
     - npm-test
     - grunt
@@ -11,7 +12,6 @@ build:
         code: |
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
-    - bundle-install
     - script:
         name: echo ruby information
         code: |
