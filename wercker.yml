@@ -3,22 +3,9 @@ box: plasticine/aerobic.io@0.0.6
 build:
   # The steps that will be executed on build
   steps:
-    # A step that executes `npm install` command
-    - npm-install
-    # A step that executes `npm test` command
-    - npm-test
-
-    # A custom script step, name value is used in the UI
-    # and the code value contains the command that get executed
-    - script:
-        name: echo nodejs information
-        code: |
-          echo "node version $(node -v) running"
-          echo "npm version $(npm -v) running"
-
     - script:
         name: npm install
-        code: npm install
+        code: npm install --save-dev
 
     - script:
         name: grunt
