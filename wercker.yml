@@ -3,23 +3,21 @@ box: plasticine/aerobic.io@0.0.6
 build:
   # The steps that will be executed on build
   steps:
+    - npm-install
+    - npm-test
+    - grunt
     - script:
-        name: npm install
-        code: npm install --save-dev
-
-    - script:
-        name: grunt
-        code: grunt
-
+        name: echo nodejs information
+        code: |
+          echo "node version $(node -v) running"
+          echo "npm version $(npm -v) running"
     - bundle-install
-
     - script:
         name: echo ruby information
         code: |
             echo "ruby version $(ruby --version) running"
             echo "from location $(which ruby)"
             echo -p "gem list: $(gem list)"
-
     - script:
         name: teste
         code: bundle exec rake
