@@ -15,6 +15,11 @@ build:
         code: |
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
+
+    - script:
+        name: npm install
+        code: npm install
+
     - script:
         name: grunt
         code: grunt
