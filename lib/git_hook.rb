@@ -23,7 +23,7 @@ class GitHook < Sinatra::Base
     app.settings.reset!
     load app.settings.app_file
 
-    context_type :txt
+    content_type :txt
     if settings.autopull?
       `git pull 2>&1`
     else
