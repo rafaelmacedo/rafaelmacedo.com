@@ -1,4 +1,5 @@
 require_relative "git_hook"
+require_relative "twitter_hook"
 require "ostruct"
 require "redcarpet"
 require "sinatra/base"
@@ -7,6 +8,7 @@ require "yaml"
 
 class Blog < Sinatra::Base
   use GitHook
+  use TwitterHook
 
   set :app_file, __FILE__
   set :posts, []

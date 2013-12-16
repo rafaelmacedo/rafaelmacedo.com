@@ -6,9 +6,11 @@ gem "rake"
 gem "redcarpet"
 gem "sass"
 gem "sinatra"
+gem "twitter"
 
 group :development do
   gem "shotgun"
+  gem "tux"
 end
 
 group :test do
