@@ -1,4 +1,5 @@
 require "sinatra/base"
+require "twitter"
 
 class TwitterHook < Sinatra::Base
   def self.twitter_client
