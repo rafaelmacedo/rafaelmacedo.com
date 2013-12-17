@@ -8,7 +8,7 @@
   <section class="post-content"><%= markdown post.content %></section>
   <section id="disqus_thread">
     <script type="text/javascript">
-      var disqus_shortname = 'rafaelmacedoblog';
+      var disqus_shortname = "<%= ENV['DISQUS_SHORTNAME'] %>";
       (function() {
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
