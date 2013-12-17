@@ -4,14 +4,14 @@ build:
   # The steps that will be executed on build
   steps:
     - bundle-install
-    - npm-install
-    - npm-test
-    - grunt
-    - script:
-        name: echo nodejs information
-        code: |
-          echo "node version $(node -v) running"
-          echo "npm version $(npm -v) running"
+      #- npm-install
+      #- npm-test
+      #- grunt
+      #- script:
+      # name: echo nodejs information
+      # code: |
+      #   echo "node version $(node -v) running"
+      #   echo "npm version $(npm -v) running"
     - script:
         name: echo ruby information
         code: |

@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title></title>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="/stylesheets/application.css">
-  <body>
-    <div class="container">
-      <section class="posts">
-        <%= yield %>
-      </section>
-    </div>
+  <head>
+    <title>blog do macedo - rafaelmacedo.com</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/stylesheets/application.css">
+  </head>
+  <body class="container">
+    <header><h1><a href="<%= url("/") %>">blog do macedo</a></h1></header>
+    </nav>
+    <%= yield %>
     <script src="/javascripts/application.js"></script>
   </body>
-</head>
 </html>
