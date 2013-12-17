@@ -13,7 +13,7 @@ class TwitterHook < Sinatra::Base
   set(:notify) { production? }
 
   post "/twitter_notify" do
-    last_post_title = app.settings.posts.last.title 
+    last_post_title = app.settings.posts.last.title
     message = "Novo post no http://rafaelmacedo.com - #{last_post_title}"
 
     if settings.notify?
