@@ -17,7 +17,7 @@ class TwitterHook < Sinatra::Base
     message = "Novo post no http://rafaelmacedo.com - #{last_post_title}"
 
     if settings.notify?
-      twitter_client.update message
+      settings.twitter_client.update message
     else
       message
     end
