@@ -19,6 +19,7 @@ header h1 {
   a:visited,
   a:focus {
     color: $black;
+    text-decoration: none;
   }
   &:before {
     content: "\0f3a"
