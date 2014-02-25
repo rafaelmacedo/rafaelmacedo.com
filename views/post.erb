@@ -1,11 +1,10 @@
 <article class="post">
   <header>
-    <h2 class="post-title"><a href="<%= url(post.slug) %>"><%= post.title %></a></h2>
-    <time class="post-date" data-components="timeago" datetime="<%= post.date.xmlschema %>">
-      <%= post.date.strftime "%Y/%m/%d" %>
-    </time>
+    <h1 class="post-title"><%= post.title %></h1>
+    <time class="post-date"><%= post.date.strftime "%d/%m/%Y" %></time>
   </header>
   <section class="post-content"><%= markdown post.content %></section>
+  <section class="post-signature"><em>— Rafael Macedo</em></section>
   <section id="disqus_thread">
     <script type="text/javascript">
       var disqus_shortname = "<%= ENV['DISQUS_SHORTNAME'] %>";

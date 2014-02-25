@@ -14,6 +14,14 @@ class Blog < Sinatra::Base
   set :posts, []
   set :root, File.expand_path("../../", __FILE__)
 
+  helpers do
+    def title(post=nil)
+      title = ["rafaelmacedo.com"]
+      title.push post.title if post
+      title.join(" - ")
+    end
+  end
+
   Dir.glob "#{root}/posts/*.md" do |file|
     meta, content = File.read(file).split("\n\n", 2)
 

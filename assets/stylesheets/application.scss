@@ -13,19 +13,12 @@ body {
   @include row;
 }
 header h1 {
-  text-align: center;
   a,
   a:hover,
   a:visited,
   a:focus {
     color: $black;
     text-decoration: none;
-  }
-  &:before {
-    content: "\0f3a"
-  }
-  &:after {
-    content: "\0f3b"
   }
 }
 .post {

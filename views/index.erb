@@ -1,10 +1,9 @@
+<header><h1><a href="<%= url("/") %>" tabindex="-1">Rafael Macedo</a></h1></header>
 <section class="posts">
   <% settings.posts.each_with_index do |post, index| %>
     <article class="post">
       <h2 class="post-title"><a href="<%= url(post.slug) %>" tabindex="<%= index + 1 %>"><%= post.title %></a></h2>
-      <time class="post-date" data-components="timeago" datetime="<%= post.date.xmlschema %>">
-        <%= post.date.strftime "%Y/%m/%d" %>
-      </time>
+      <time class="post-date"><%= post.date.strftime "%d/%m/%Y" %></time>
       <p class="post-link"><a href="<%= url(post.slug) %>" tabindex="-1"><%= url(post.slug) %></a></p>
     </article>
   <% end %>
