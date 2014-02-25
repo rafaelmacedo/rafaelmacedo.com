@@ -5,7 +5,7 @@ class GitHook < Sinatra::Base
   def self.parse_git
     sha1, date = `git log HEAD~1..HEAD --pretty=format:%h^%ci`.strip.split("^")
     set :commit_hash, sha1
-    set :commit_date, Time.parse(date)
+    set :commit_date, Time.parse(date) if date
   end
 
   set(:autopull) { production? }
