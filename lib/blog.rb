@@ -1,5 +1,3 @@
-require_relative "git_hook"
-require_relative "twitter_hook"
 require "ostruct"
 require "redcarpet"
 require "sinatra/base"
@@ -7,6 +5,9 @@ require "time"
 require "yaml"
 
 class Blog < Sinatra::Base
+  autoload :GitHook,     "git_hook"
+  autoload :TwitterHook, "twitter_hook"
+
   use GitHook
   use TwitterHook
 
