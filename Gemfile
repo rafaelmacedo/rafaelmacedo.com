@@ -11,6 +11,7 @@ gem "unicorn"
 
 group :development do
   gem "capistrano"
+  gem "capistrano-bundler"
   gem "shotgun"
   gem "tux"
 end
