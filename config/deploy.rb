@@ -11,6 +11,7 @@ set :scm, :git
 set :format, :pretty
 
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_files, %w{.env}
 
 set :keep_releases, 5
 
