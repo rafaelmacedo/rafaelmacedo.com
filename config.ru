@@ -1,5 +1,8 @@
 $LOAD_PATH.unshift "lib"
 
+require "dotenv"
+Dotenv.load
+
 require "blog"
 require "rack/cache"
 require "newrelic_rpm"

@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "dotenv"
 gem "newrelic_rpm"
 gem "rack"
 gem "rack-cache"
