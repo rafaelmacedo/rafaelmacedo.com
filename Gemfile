@@ -10,6 +10,7 @@ gem "twitter"
 gem "unicorn"
 
 group :development do
+  gem "capistrano"
   gem "shotgun"
   gem "tux"
 end
