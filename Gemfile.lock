@@ -29,6 +29,7 @@ GEM
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
+    newrelic_rpm (3.7.2.195)
     rack (1.5.2)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -94,6 +95,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano
   capistrano-bundler
+  newrelic_rpm
   rack
   rack-cache
   rack-test
