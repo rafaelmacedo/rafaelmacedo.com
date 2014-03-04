@@ -7,6 +7,7 @@ gem "redcarpet"
 gem "sass"
 gem "sinatra"
 gem "twitter"
+gem "unicorn"
 
 group :development do
   gem "shotgun"
