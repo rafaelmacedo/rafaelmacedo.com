@@ -1,3 +1,4 @@
+require "digest"
 require "ostruct"
 require "redcarpet"
 require "sinatra/base"
@@ -5,11 +6,6 @@ require "time"
 require "yaml"
 
 class Blog < Sinatra::Base
-  autoload :GitHook,     "git_hook"
-  autoload :TwitterHook, "twitter_hook"
-
-  use GitHook
-  use TwitterHook
 
   set :app_file, __FILE__
   set :posts, []
@@ -28,7 +24,7 @@ class Blog < Sinatra::Base
 
     post         = OpenStruct.new YAML.load(meta)
     post.content = content
-    post.data    = Time.parse post.date.to_s
+    post.date    = Time.parse post.date.to_s
     post.slug    = File.basename file, ".md"
     post.slug.gsub!(/\d{4}-\d{2}-\d{2}-/) { |match| match.gsub!("-", "/") }
 
@@ -38,6 +34,12 @@ class Blog < Sinatra::Base
 
   posts.sort_by { |post| post.date }
   posts.reverse!
+
+  before do
+    cache_control :public, :must_revalidate
+    etag Digest::MD5.hexdigest(posts.to_s)
+    last_modified posts.first.date
+  end
 
   get("/") { erb :index }
 end
