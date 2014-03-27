@@ -1,8 +1,5 @@
 <article class="post">
-  <header>
-    <h1 class="post-title"><%= post.title %></h1>
-    <time class="post-date"><%= post.date.strftime "%d/%m/%Y" %></time>
-  </header>
+  <time class="post-date"><%= post.date.strftime "%d/%m/%Y" %></time>
   <section class="post-content"><%= markdown post.content %></section>
   <section class="post-signature"><em>— Rafael Macedo</em></section>
   <section id="disqus_thread">

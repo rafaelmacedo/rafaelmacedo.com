@@ -12,20 +12,33 @@ body {
 .container {
   @include row;
 }
-header h1 {
-  a,
-  a:hover,
-  a:visited,
-  a:focus {
-    color: $black;
-    text-decoration: none;
+header {
+  h1 {
+    a,
+    a:hover,
+    a:visited,
+    a:focus {
+      color: $black;
+      text-decoration: none;
+    }
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  h1,
+  h2 {
+    display: inline-block;
   }
 }
-.post {
+.post,
+.talk {
   padding: 20px;
   border-bottom: 1px dotted;
 }
-.post-title {
+.post-title,
+.talk-title {
   float: left;
   a,
   a:hover,
@@ -35,12 +48,13 @@ header h1 {
     color: $blue;
   }
 }
-.post-content {
+.post-content,
+.talk-description {
   clear: both;
 }
 .post-date {
   float: right;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 .post-link {
   clear: both;
@@ -49,5 +63,23 @@ header h1 {
   a:visited,
   a:focus {
     color: $black;
+  }
+}
+.menu-list {
+  margin: 0;
+  padding: 10px 20px;
+  list-style-type: none;
+}
+
+.menu-item {
+  display: inline;
+}
+
+.menu-link {
+  text-transform: uppercase;
+  color: $black;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
   }
 }
